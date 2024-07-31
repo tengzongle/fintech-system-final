@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: url('/img/0243.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header, footer {
+      background: #000;
+      color: #fff;
+    }
+
+    header nav a, footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header nav a:hover, footer a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 2em;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
+
+    .balance-section {
+      margin-bottom: 2em;
+    }
+
+    .balance-section h2 {
+      font-size: 1.5em;
+    }
+
+    .balance-section p {
+      font-size: 1.2em;
+      color: gray;
+    }
+
+    .balance-section .btn {
+      margin-top: 1em;
+      margin-right: 1em;
+    }
+
+    .transactions-section {
+      margin-top: 2em;
+    }
+
+    .transactions-section h2 {
+      font-size: 1.5em;
+    }
+
+    .transactions-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .transactions-section li {
+      font-size: 1em;
+      color: gray;
+    }
+
+    footer {
+      padding: 2em 0;
+      text-align: center;
+      margin-top: 2em;
+    }
+
+    .footer-contact {
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">FinFlex</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="/compliance">Compliance</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        </ul>
+        <div class="navbar-text" id="user-info">
+          <!-- 用户信息将由 JavaScript 动态填充 -->
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-md-6 balance-section">
+        <h2>Current Balance: $<span id="user-balance"></span></h2>
+        <p>Singapore Dollars - SGD</p>
+        <a href="/top-up-account" class="btn btn-dark">+ Add money</a>
+        <a href="/transfer-money" class="btn btn-dark">Send Money</a>
+      </div>
+      <div class="col-md-6 text-right">
+        <h1 class="display-4">Welcome Back, <span id="user-name"></span></h1>
+      </div>
+    </div>
+    <div class="transactions-section">
+      <h2>Past Transactions</h2>
+      <ul id="transaction-list">
+        <!-- 交易记录将由 JavaScript 动态填充 -->
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>FinFlex</p>
+      <div class="footer-contact">
+        <p>Contact Details</p>
+        <p>Email: support@finflex.com</p>
+        <p>Phone: +65 6969 6969</p>
+        <p>Address: Mandarin Gallery, 333A Orchard Rd, Singapore 238897</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    async function fetchUserData() {
+      try {
+        const response = await fetch('/api/current-user');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        
+        document.getElementById('user-info').innerHTML = `Welcome, ${data.name} | <a href="/logout" class="btn btn-outline-light">Logout</a>`;
+        document.getElementById('user-name').innerText = data.name;
+        document.getElementById('user-balance').innerText = data.balance;
+
+        const transactionList = document.getElementById('transaction-list');
+        if (data.transactionsSent.length === 0 && data.transactionsReceived.length === 0) {
+          const li = document.createElement('li');
+          li.textContent = 'No transactions available';
+          transactionList.appendChild(li);
+        } else {
+          if (data.transactionsSent) {
+            data.transactionsSent.forEach(transaction => {
+              const li = document.createElement('li');
+              li.textContent = `${transaction.date} Sent ${transaction.amount} to ${transaction.receiverId}`;
+              transactionList.appendChild(li);
+            });
+          }
+          if (data.transactionsReceived) {
+            data.transactionsReceived.forEach(transaction => {
+              const li = document.createElement('li');
+              li.textContent = `${transaction.date} Received ${transaction.amount} from ${transaction.senderId}`;
+              transactionList.appendChild(li);
+            });
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchUserData);
+  </script>
+</body>
+</html>

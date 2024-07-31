@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    background: #333;
+    color: #fff;
+  }
+  
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  header nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 2em;
+  }
+  
+  footer {
+    background: #333;
+    color: #fff;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  .testimonials, .pricing-plans {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .testimonial, .plan {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form div {
+    margin-bottom: 1em;
+  }
+  
+  form label {
+    margin-bottom: 0.5em;
+  }
+  
+  form input, form textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background: #0056b3;
+  }
+  
+  .card {
+    border: none;
+  }
+  
+  .card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+  
+  .card-subtitle {
+    font-size: 0.875em;
+  }
+  

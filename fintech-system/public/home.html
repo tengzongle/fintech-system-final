@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background: #000; /* 纯黑色背景 */
+      color: #fff; /* 白色文字 */
+    }
+
+    header nav a, footer a {
+      color: #fff; /* 链接颜色为白色 */
+      text-decoration: none;
+    }
+
+    header nav a:hover, footer a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 2em 0;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2em 0;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+    }
+
+    .navbar-nav .nav-link {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    .navbar-nav .nav-item:last-child .nav-link {
+      padding-right: 0;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 2em 0;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+    }
+
+    .hero-section p {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+
+    .hero-section img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+    }
+
+    .content-section {
+      text-align: center;
+      margin: 2em 0;
+    }
+
+    .reviews-section {
+      margin: 2em 0;
+    }
+
+    .review-card {
+      padding: 1.5em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 0.5em 0;
+      text-align: center;
+    }
+
+    .review-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5em;
+    }
+
+    .review-card .card-text {
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+    }
+
+    .review-card .card-title {
+      font-weight: bold;
+      margin-bottom: 0.25em;
+    }
+
+    .review-card .card-subtitle {
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    .text-center .lead {
+      font-size: 1.25em;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">FinGuard</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/compliance.html">Compliance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact.html">Contact</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="/login.html" class="btn btn-outline-light">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main class="container my-4">
+    <section class="hero-section">
+      <h1>FinFlex</h1>
+      <p>Simplify Your Finances, Securely</p>
+      <img src="path/to/your/hero-image.jpg" alt="Hero Image">
+    </section>
+    <section class="content-section">
+      <h2>Manage your money effortlessly & securely</h2>
+      <p class="lead">FinFlex is a secure and easy-to-use e-wallet for all your financial needs. Make purchases, pay bills, and send money to friends with our convenient platform. FinFlex offers advanced security and helpful tools to manage your money with confidence.</p>
+    </section>
+    <section class="reviews-section">
+      <h2>Reviews</h2>
+      <p>Bringing you the truth, one review at a time</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="review-card">
+            <img src="path/to/your/reviewer1.jpg" alt="Reviewer Image">
+            <p class="card-text">“A terrific piece of praise”</p>
+            <p class="card-title">Name</p>
+            <p class="card-subtitle">Description</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="review-card">
+            <img src="path/to/your/reviewer2.jpg" alt="Reviewer Image">
+            <p class="card-text">“A fantastic bit of feedback”</p>
+            <p class="card-title">Name</p>
+            <p class="card-subtitle">Description</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="review-card">
+            <img src="path/to/your/reviewer3.jpg" alt="Reviewer Image">
+            <p class="card-text">“A genuinely glowing review”</p>
+            <p class="card-title">Name</p>
+            <p class="card-subtitle">Description</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <p>FinFlex</p>
+      <div class="footer-contact">
+        <p>Contact Details</p>
+        <p>Email: support@finflex.com</p>
+        <p>Phone: +65 6969 6969</p>
+        <p>Address: Mandarin Gallery, 333A Orchard Rd, Singapore 238897</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "jwtSecret": "yourSecretKey",
+  "db": {
+    "host": "localhost",
+    "user": "root",
+    "password": "Republic_C207",
+    "database": "fintech"
+  }
+}

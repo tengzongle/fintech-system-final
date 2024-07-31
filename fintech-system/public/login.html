@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Log In / Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background: #000; /* 纯黑色背景 */
+      color: #fff;
+    }
+
+    header nav a, footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header nav a:hover, footer a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 2em;
+    }
+
+    .tab-content {
+      border: 1px solid #ddd;
+      border-top: none;
+      padding: 2em;
+    }
+
+    .form-group {
+      margin-bottom: 1.5em;
+    }
+
+    .form-control {
+      padding: 0.75em;
+      border: 1px solid #ccc;
+    }
+
+    .btn-primary {
+      background: #007bff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+
+    .nav-tabs .nav-link {
+      border: 1px solid #ddd;
+      border-bottom-color: transparent;
+    }
+
+    .nav-tabs .nav-link.active {
+      border-color: #ddd #ddd #fff;
+    }
+
+    footer {
+      padding: 2em 0;
+      text-align: center;
+    }
+
+    .footer-contact {
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Finflex</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="/compliance.html">Compliance</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        </ul>
+        <a href="/login.html" class="btn btn-outline-light">Login</a>
+      </div>
+    </nav>
+  </header>
+  <main class="container my-5">
+    <h1 class="text-center">Log In / Register</h1>
+    <ul class="nav nav-tabs" id="authTabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Log In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="authTabsContent">
+      <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+        <form action="/login" method="post" class="mt-4">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+        <form action="/register" method="post" class="mt-4">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="transactionPassword">Transaction Password</label>
+            <input type="password" class="form-control" id="transactionPassword" name="transactionPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>Finflex</p>
+      <div class="footer-contact">
+        <p>Contact Details</p>
+        <p>Email: support@finflex.com</p>
+        <p>Phone: +65 6969 6969</p>
+        <p>Address: Mandarin Gallery, 333A Orchard Rd, Singapore 238897</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

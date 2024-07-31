@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Top Up Account</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Top Up Account</h1>
+    <form id="topUpForm">
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" id="amount" name="amount" required>
+      </div>
+      <div class="form-group">
+        <label for="transactionPassword">Transaction Password</label>
+        <input type="password" class="form-control" id="transactionPassword" name="transactionPassword" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Top Up</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('topUpForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+
+      const formData = new FormData(this);
+      const data = {
+        amount: formData.get('amount'),
+        transactionPassword: formData.get('transactionPassword')
+      };
+
+      try {
+        const response = await fetch('/transaction/top-up', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          // 获取当前用户信息
+          const userResponse = await fetch('/api/current-user');
+          const userData = await userResponse.json();
+
+          // 在控制台输出用户信息
+          console.log('Current User Information:', userData);
+          
+          // 可选：在页面上显示用户信息
+          alert('Top up successful! Check the console for user details.');
+        } else {
+          console.error('Top up failed:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error during top up:', error);
+      }
+    });
+  </script>
+</body>
+</html>
